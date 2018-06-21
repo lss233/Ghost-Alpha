@@ -1,0 +1,18 @@
+<form method="post" action="{{action}}" class="{{form_class}}">
+		{{! This is required for the form to work correctly }}
+		{{hidden}}
+		<div class="row gtr-50 gtr-uniform">
+			<div class="col-8 col-12-mobilep">
+				{{input_email class=input_class placeholder='your@email.com' value=email autofocus=autofocus}}
+			</div>
+			<div class="col-4 col-12-mobilep">
+				<input class="{{button_class}} fit" type="submit"></input>
+			</div>
+		</div>   
+    {{! This is used to get extra info about where this subscriber came from }}
+    {{script}}
+</form>
+
+{{#if error}}
+    <p class="main-error">{{{error.message}}}</p>
+{{/if}}

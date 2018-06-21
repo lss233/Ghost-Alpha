@@ -1,0 +1,25 @@
+{{!< default}}
+
+<div class="tag" >
+	<h1>&lt;{{tag.name}}&gt;</h1>
+	<span>共{{pagination.total}}篇文章</span>
+</div>
+
+{{#foreach posts}}
+	<article>
+		<h3>
+			<a href="/#!/post/{{id}}">{{title}}</a>
+		</h3>
+		<div class="pub-info" >{{date format="YYYY/MM/DD"}}</div>
+		<div class="content">
+			{{meta_description}}
+			{{#if feature_image}}
+				<img src="{{img_url}}" alt="pic" >
+			{{/if}}
+			<div class="read"><a href="/#!/post/{{id}}">阅读全文</a></div>
+		</div>
+	</article>
+{{/foreach}}
+
+{{pagination}}
+

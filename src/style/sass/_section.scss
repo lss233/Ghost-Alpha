@@ -1,0 +1,112 @@
+.main{
+	padding-top:170px;
+	margin-bottom:100px;
+	min-height:100%;
+}
+article{
+	width:70%;
+	margin:0 auto;
+	margin-top:50px;
+	padding:15px 5%;
+	box-shadow:1px 1px 2px 0px darken(#CCC,10%);
+	background-color:#FFF;
+	box-sizing:border-box;
+	
+	&:hover{
+		box-shadow:0px 0px 1px 1px #CCC inset;
+	}
+
+	& > h3{
+		font-size:1.5rem;
+		text-align:center;
+	}
+
+	a{
+		color:inherit;
+		text-decoration:none;
+		&:hover{
+			color:lighten(blue,10%);
+			text-decoration:underline;
+		}
+	}
+	hr{
+		margin-top:10px;
+		margin-bottom:10px;
+		border-color:#ddd;
+	}
+
+}
+.pub-info{
+	text-align:center;
+	font-size:1.2rem;
+	margin-bottom:10px;
+}
+.content{
+	line-height:1.6;
+	font-size: 1rem;
+	padding-bottom:12px;
+	word-wrap:break-word;
+	word-break:break-all;
+	img{
+		max-width:100%;
+		border-radius:.5rem;
+		margin:8px 0;
+	}
+
+	&.markdown-body {
+		font-size: .9rem;
+	}
+}
+.read{
+	text-align:center;
+	margin-top:10px;
+	font-size:1.2em;
+}
+.other-info{
+	font-size:15px;
+	padding:0;
+	padding-top:7px;
+	ul{
+		padding:0;
+		list-style:none;
+	}
+	li{
+		display:inline-block;
+	}
+	&>li{
+		padding:0 7px;
+	}
+	.fa-tags{
+		margin-bottom:10px;
+		li{
+			padding:0 4px;
+			font-size:.9rem;
+		}
+		li:first-child{
+			padding-left:0;
+		}
+	} 
+}
+
+.bl-transition{
+	transition:all .6s ease-out;
+	position:relative;
+	left:0;
+	top:0;
+	opacity:1;
+}
+
+/** 
+ * enter:组件进入时的状态
+ * leave:组件离开时的状态
+ * 如果不设置leave,组件将保留
+ * 如:翻页时,仍然存在前一页的内容
+ */
+.bl-enter,
+.bl-leave{
+	position:relative;
+	left:0;
+	top:-200px;
+	opacity:0;
+}
+

@@ -1,0 +1,18 @@
+{{!< default}}
+
+{{#post}}
+<div id="main" class="box" style="margin-top: 0em;">
+	<header>
+		<h2>{{ title }}</h2>
+	</header>
+	<div class="box">
+		{{#if featured_image}}
+			<span class="image featured"><img src="{{img_url featured_image}}" alt="title"/></span>
+		{{/if}}
+		{{content}}
+	</div>
+	<div class="comment">
+		<vue-disqus shortname="lss233-blog" identifier="{{comment_id}}" url="{{url}}"></vue-disqus>
+	</div>
+</div>
+{{/post}}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<title>{{meta_title}}</title>
+		<link rel="shortcut icon" href="{{asset '/favicon.ico'}}" type="image/x-icon">
+		<link rel="stylesheet" href="{{asset 'css/main.css'}}" />
+		<link rel="stylesheet" href="{{asset 'css/prism.css'}}" />
+		{{ghost_head}}
+	</head>
+	<body class="landing is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1><a href="/#/">{{@blog.title}}</a></h1>
+					{{ navigation }}
+				</header>
+
+			<!-- Banner -->
+				<section id="banner" {{#if @blog.cover_image}}style="background-image: url('{{asset 'images/overlay.png'}}'), url('{{@blog.cover_image}}');"{{/if}}>
+					<h2>{{@blog.title}}</h2>
+					<p>{{@blog.description}}</p>
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="container">
+					<div id="app">
+						{{{body}}}
+					</div>
+				</section>
+
+				{{!-- Email subscribe form at the bottom of the page --}}
+				{{#if @labs.subscribers}}
+					<section id="cta">
+
+						<h2>{{t 'Subscribe to'}} {{@blog.title}}</h2>
+						<p>{{t 'Stay up to date! Get all the latest & greatest posts delivered straight to your inbox'}}</p>
+						{{subscribe_form}}
+						 <span class="gh-subscribe-rss">{{t 'or subscribe'}} <a href="{{@blog.url}}/rss/">{{t 'via RSS'}}!</a></span>
+					</section>
+				{{/if}}
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="{{twitter_url}}" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="{{facebook_url}}" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" id="social-instagram" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" id="social-github" class="icon fa-github"><span class="label">Github</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</li>
+						<li>Theme by: <a href="https://lss233.com" target="_blank">Lss233</a></li>
+						<li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="{{asset 'js/jquery.min.js'}}"></script>
+			<script src="{{asset 'js/jquery.dropotron.min.js'}}"></script>
+			<script src="{{asset 'js/jquery.scrollex.min.js'}}"></script>
+			<script src="{{asset 'js/browser.min.js'}}"></script>
+			<script src="{{asset 'js/breakpoints.min.js'}}"></script>
+			<script src="{{asset 'js/prism.js'}}"></script>
+		  <script src="{{asset 'js/vue.min.js'}}"></script>
+			<script src="{{asset 'js/vue-router.min.js'}}"></script>
+			<script src="{{asset 'js/vue-disqus.js'}}"></script>
+			<script src="{{asset 'js/axios.min.js'}}"></script>
+			<script src="{{asset 'js/util.js'}}"></script>
+			<script src="{{asset 'js/main.js'}}"></script>
+			<script src="{{asset 'js/app.js'}}" type="module"></script>
+			{{ghost_foot}}
+
+	</body>
+</html>
