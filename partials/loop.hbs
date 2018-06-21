@@ -1,0 +1,40 @@
+{{!-- Previous/next page links - only displayed on page 2+ --}}
+<div class="extra-pagination inner">
+    {{pagination}}
+</div>
+
+{{!-- This is the post loop - each post will be output using this markup --}}
+{{#foreach posts}}
+<article class="{{post_class}} feature-color" data-article-slug="{{slug}}">
+    <header class="post-header">
+        <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>{{excerpt words="24"}}<a class="read-more" href="{{url}}">...</a></p>
+    </section>
+    <footer class="post-meta">
+        {{#author}}
+            {{#if profile_image}}<img class="author-thumb" src="{{profile_image}}" alt="{{name}}" nopin="nopin" />{{/if}}
+        {{/author}}
+        {{author}}
+        {{tags prefix=" 于 <i class=\"fa fa-tags\" aria-hidden=\"true\"></i>"}}
+        <div class="meta-element">
+            <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                {{date format="DD MMMM YYYY"}}
+            </time>
+        </div>
+        <div class="meta-element">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            {{reading_time}}
+        </div>
+        <div class="meta-element">
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+            <span class="disqus-comment-count" data-disqus-identifier="ghost-{{url absolute="true"}}"></span>
+        </div>
+    </footer>
+</article>
+{{/foreach}}
+
+{{!-- Previous/next page links - displayed on every page --}}
+{{pagination}}
