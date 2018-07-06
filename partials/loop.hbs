@@ -1,39 +1,53 @@
-{{!-- Previous/next page links - only displayed on page 2+ --}}
-<div class="extra-pagination inner">
-    {{pagination}}
-</div>
-
 {{!-- This is the post loop - each post will be output using this markup --}}
 {{#foreach posts}}
-<article class="{{post_class}} feature-color" data-article-slug="{{slug}}">
-    <header class="post-header">
-        <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>{{excerpt words="24"}}<a class="read-more" href="{{url}}">...</a></p>
-    </section>
-    <footer class="post-meta">
-        {{#author}}
-            {{#if profile_image}}<img class="author-thumb" src="{{profile_image}}" alt="{{name}}" nopin="nopin" />{{/if}}
-        {{/author}}
-        {{author}}
-        {{tags prefix=" 于 <i class=\"fa fa-tags\" aria-hidden=\"true\"></i>"}}
+<section class="box special" data-article-slug="{{slug}}">
+    {{#if feature_image}}
+        <span class="image featured"><img src="{{img_url feature_image}}" alt="" /></span>
+    {{/if}}
+  <h3>
+    <a href="{{url}}">
+      {{title}}
+    </a>
+  </h3>
+  <div class="preview">
+      {{content}}
+  </div>
+  <div class="divider"></div>
+      <div class="post-meta">
+        <div class="author-meta">
+            {{#primary_author}}
+                <a href="{{url}}">
+                  {{#if profile_image}}
+                          <img class="author-thumb" src="{{img_url profile_image}}" alt="{{name}}">
+                  {{/if}}
+                  {{name}}
+                </a>
+            {{/primary_author}}
+                {{#if tags}}
+                  {{t "at" }}
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                  <ul class="tags">
+                      {{#foreach tags}}
+                        <li>
+                          <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                        </li>  
+                      {{/foreach}}
+                  </ul>
+                {{/if}}
+        </div>
         <div class="meta-element">
-            <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">
+            <time class="post-date" datetime="{{date published_at format="MMMM DD, YYYY"}}">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                {{date format="DD MMMM YYYY"}}
+                {{date published_at format="MMMM DD, YYYY"}}
             </time>
         </div>
-        <div class="meta-element">
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
-            {{reading_time}}
-        </div>
-        <div class="meta-element">
-            <i class="fa fa-commenting-o" aria-hidden="true"></i>
-            <span class="disqus-comment-count" data-disqus-identifier="ghost-{{url absolute="true"}}"></span>
-        </div>
-    </footer>
-</article>
+      </div>
+  <ul class="actions special">
+    <li>
+      <a class="button alt" href="{{url}}">{{t "Learn More"}}</a>
+    </li>
+  </ul>
+</section>
 {{/foreach}}
 
 {{!-- Previous/next page links - displayed on every page --}}
