@@ -2,7 +2,11 @@ export default {
   template: `
   <section class="box special">
     <span class="image featured"><img :src="post.feature_image" alt="" /></span>
-    <h3>{{post.title}}</h3>
+    <router-link tag="h3" :to="{name: 'Post', params: { slug: post.slug }}">
+      <a>
+        {{post.title}}
+      </a>
+    </router-link>
     <div class="preview" v-html="post.html"></div>
     <div class="divider"></div>
         <div class="post-meta">

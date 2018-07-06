@@ -2022,7 +2022,9 @@
 		}
 
 /* Section/Article */
-
+	.page-number {
+		margin: 0px 15px;
+	}
 	.post-meta {
 		color: #999;
 		position: relative;
@@ -2048,7 +2050,16 @@
 	}
 
 	.post-meta .meta-element .fa{
-		padding-right: 26px;
+		padding-right: 16px;
+	}
+
+	.post-meta .tags {
+		display: inline;
+		list-style: none;
+		padding-left: 0em;
+	}
+	.post-meta .tags li {
+		display: inline;
 	}
 	section.special, article.special {
 		text-align: center;
@@ -2308,6 +2319,13 @@
 		.box.content {
 			box-shadow: unset;
 		}
+
+		.box.content *{
+			color: #575757;
+			font-weight: 400;
+			font-size: 18px;
+		}
+
 		.box.content img {
 			width: 100%;
 		}
@@ -2414,6 +2432,10 @@
 			overflow: hidden;
 			max-height: 300px;
 			text-align: left;
+		}
+		.box.special .preview * {
+			font-size: 18px;
+			font-weight: 400;
 		}
 		.box.special .divider {
 			height: 1px;
