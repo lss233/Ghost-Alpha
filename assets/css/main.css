@@ -2318,10 +2318,6 @@
 
 		.box.content {
 			box-shadow: unset;
-		}
-
-		.box.content *{
-			color: #575757;
 			font-weight: 400;
 			font-size: 18px;
 		}
