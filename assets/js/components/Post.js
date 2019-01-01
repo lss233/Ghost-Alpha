@@ -29,7 +29,7 @@ export default {
 				<div v-html="post.html"></div>
 			</div>
 			<div class="comment" v-if="!post.page">
-				<vue-disqus shortname="$config['disqus-shortname']" :identifier="post.comment_id" url="post.url"></vue-disqus>
+				<vue-disqus :shortname="$config['disqus-shortname']" :identifier="post.comment_id" :url="post.fullUrl"></vue-disqus>
 			</div>
 		</div>
 	`,
@@ -44,6 +44,7 @@ export default {
 		axios.get(ghost.url.api('posts/slug/' + this.$route.params.slug))
 			.then(res => {
 				this.post = res.data.posts[0]
+				this.post.fullUrl = 'https://' + window.location.host + this.post.url
 				return axios.get(ghost.url.api('users/' + this.post.author))
 			})
 			.then(res => this.author = res.data.users[0])
