@@ -29,7 +29,7 @@ export default {
 				<div v-html="post.html"></div>
 			</div>
 			<div class="comment" v-if="!post.page">
-				<vue-disqus :shortname="$config['disqus-shortname']" :identifier="post.comment_id" url="post.url"></vue-disqus>
+				<vue-disqus shortname="$config['disqus-shortname']" :identifier="post.comment_id" url="post.url"></vue-disqus>
 			</div>
 		</div>
 	`,
