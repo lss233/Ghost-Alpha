@@ -25,7 +25,7 @@ export default {
           <div class="meta-element">
               <time class="post-date" :datetime="post.created_at">
                   <i class="fa fa-calendar" aria-hidden="true"></i>
-                  12 February 2018
+	{{ publishedDate }}
               </time>
           </div>
         </div>
@@ -43,6 +43,11 @@ export default {
   },
   data() {
     return {
+    }
+  },
+  computed: {
+    publishedDate() {
+       return new Intl.DateTimeFormat().format(new Date(this.post.published_at))
     }
   }
 }
